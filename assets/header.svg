@@ -1,0 +1,179 @@
+<svg width="900" height="320" viewBox="0 0 900 320" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @keyframes blink { 0%,49%{opacity:1} 50%,100%{opacity:0} }
+      @keyframes borderPulse {
+        0%,100% { stroke-opacity:0.4 }
+        50% { stroke-opacity:1 }
+      }
+      @keyframes glowPulse {
+        0%,100% { filter:drop-shadow(0 0 6px #58a6ff) drop-shadow(0 0 12px #7c3aed40) }
+        50% { filter:drop-shadow(0 0 14px #58a6ff) drop-shadow(0 0 28px #7c3aedaa) drop-shadow(0 0 40px #58a6ff40) }
+      }
+      @keyframes fadeUp1 { 0%{opacity:0;transform:translateY(16px)} 100%{opacity:1;transform:translateY(0)} }
+      @keyframes fadeUp2 { 0%{opacity:0;transform:translateY(16px)} 100%{opacity:1;transform:translateY(0)} }
+      @keyframes fadeUp3 { 0%{opacity:0;transform:translateY(16px)} 100%{opacity:1;transform:translateY(0)} }
+      @keyframes lineGrow { from{stroke-dashoffset:900} to{stroke-dashoffset:0} }
+      @keyframes scanMove {
+        0%   {transform:translateY(0px);  opacity:0.04}
+        50%  {opacity:0.07}
+        100% {transform:translateY(320px);opacity:0.04}
+      }
+      @keyframes dot1 {0%,100%{opacity:0.15}33%{opacity:0.9}  }
+      @keyframes dot2 {0%,100%{opacity:0.15}66%{opacity:0.9}  }
+      @keyframes dot3 {0%,100%{opacity:0.15}100%{opacity:0.9} }
+      @keyframes cornerPulse { 0%,100%{opacity:0.3} 50%{opacity:1} }
+
+      .cursor { animation: blink 1.1s step-end infinite; }
+      .border-top { animation: lineGrow 1.8s ease-out forwards; stroke-dasharray:900; stroke-dashoffset:900; }
+      .border-bot { animation: lineGrow 1.8s ease-out 0.2s forwards; stroke-dasharray:900; stroke-dashoffset:900; }
+      .name-group { animation: fadeUp2 0.7s ease-out 0.4s both; }
+      .role-group { animation: fadeUp3 0.7s ease-out 0.7s both; }
+      .bottom-group { animation: fadeUp1 0.7s ease-out 1.0s both; }
+      .glow-name { animation: glowPulse 3.5s ease-in-out infinite; }
+      .scan { animation: scanMove 6s linear infinite; }
+      .d1 { animation: dot1 1.8s ease-in-out infinite; }
+      .d2 { animation: dot2 1.8s ease-in-out infinite; }
+      .d3 { animation: dot3 1.8s ease-in-out infinite; }
+      .corner { animation: cornerPulse 2.5s ease-in-out infinite; }
+    </style>
+
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#010409"/>
+      <stop offset="45%" stop-color="#0d1117"/>
+      <stop offset="100%" stop-color="#0f1923"/>
+    </linearGradient>
+    <linearGradient id="nameGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#e6edf3"/>
+      <stop offset="50%"  stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#c9d1d9"/>
+    </linearGradient>
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#58a6ff" stop-opacity="0"/>
+      <stop offset="20%"  stop-color="#58a6ff" stop-opacity="0.9"/>
+      <stop offset="50%"  stop-color="#a371f7"/>
+      <stop offset="80%"  stop-color="#58a6ff" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#58a6ff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="borderGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#3fb950" stop-opacity="0"/>
+      <stop offset="30%"  stop-color="#3fb950" stop-opacity="0.7"/>
+      <stop offset="70%"  stop-color="#58a6ff" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#58a6ff" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="glow4">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow10">
+      <feGaussianBlur stdDeviation="10" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glowName">
+      <feGaussianBlur stdDeviation="12" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- BG -->
+  <rect width="900" height="320" fill="url(#bgGrad)"/>
+
+  <!-- Scanline effect -->
+  <rect class="scan" width="900" height="2" y="-2" fill="#58a6ff"/>
+
+  <!-- Subtle grid dots -->
+  <g opacity="0.06" fill="#58a6ff">
+    <circle cx="50"  cy="40"  r="1.2"/> <circle cx="150" cy="40"  r="1.2"/> <circle cx="250" cy="40"  r="1.2"/> <circle cx="350" cy="40"  r="1.2"/> <circle cx="450" cy="40"  r="1.2"/> <circle cx="550" cy="40"  r="1.2"/> <circle cx="650" cy="40"  r="1.2"/> <circle cx="750" cy="40"  r="1.2"/> <circle cx="850" cy="40"  r="1.2"/>
+    <circle cx="50"  cy="110" r="1.2"/> <circle cx="150" cy="110" r="1.2"/> <circle cx="250" cy="110" r="1.2"/> <circle cx="350" cy="110" r="1.2"/> <circle cx="450" cy="110" r="1.2"/> <circle cx="550" cy="110" r="1.2"/> <circle cx="650" cy="110" r="1.2"/> <circle cx="750" cy="110" r="1.2"/> <circle cx="850" cy="110" r="1.2"/>
+    <circle cx="50"  cy="180" r="1.2"/> <circle cx="150" cy="180" r="1.2"/> <circle cx="250" cy="180" r="1.2"/> <circle cx="350" cy="180" r="1.2"/> <circle cx="450" cy="180" r="1.2"/> <circle cx="550" cy="180" r="1.2"/> <circle cx="650" cy="180" r="1.2"/> <circle cx="750" cy="180" r="1.2"/> <circle cx="850" cy="180" r="1.2"/>
+    <circle cx="50"  cy="250" r="1.2"/> <circle cx="150" cy="250" r="1.2"/> <circle cx="250" cy="250" r="1.2"/> <circle cx="350" cy="250" r="1.2"/> <circle cx="450" cy="250" r="1.2"/> <circle cx="550" cy="250" r="1.2"/> <circle cx="650" cy="250" r="1.2"/> <circle cx="750" cy="250" r="1.2"/> <circle cx="850" cy="250" r="1.2"/>
+    <circle cx="50"  cy="310" r="1.2"/> <circle cx="150" cy="310" r="1.2"/> <circle cx="250" cy="310" r="1.2"/> <circle cx="350" cy="310" r="1.2"/> <circle cx="450" cy="310" r="1.2"/> <circle cx="550" cy="310" r="1.2"/> <circle cx="650" cy="310" r="1.2"/> <circle cx="750" cy="310" r="1.2"/> <circle cx="850" cy="310" r="1.2"/>
+  </g>
+
+  <!-- Corner brackets — top-left -->
+  <g class="corner" fill="none" stroke="#58a6ff" stroke-width="1.5">
+    <polyline points="18,44  18,18  44,18"/>
+    <polyline points="856,18 882,18 882,44"/>
+    <polyline points="18,276 18,302 44,302"/>
+    <polyline points="856,302 882,302 882,276"/>
+  </g>
+
+  <!-- Top animated border line -->
+  <line class="border-top" x1="0" y1="1" x2="900" y2="1"
+        stroke="url(#borderGrad)" stroke-width="2"/>
+  <!-- Bottom animated border line -->
+  <line class="border-bot" x1="0" y1="319" x2="900" y2="319"
+        stroke="url(#borderGrad2)" stroke-width="2"/>
+
+  <!-- Terminal prompt line (top-left) -->
+  <g fill="#6e7681" font-family="'Courier New',Courier,monospace" font-size="12">
+    <text x="30" y="72">
+      <tspan fill="#3fb950" font-weight="bold">▶</tspan>
+      <tspan fill="#58a6ff"> paarth293</tspan>
+      <tspan fill="#6e7681">@architect</tspan>
+      <tspan fill="#a371f7"> ~/projects</tspan>
+      <tspan fill="#6e7681"> $ ./</tspan>
+      <tspan fill="#e6edf3">run</tspan>
+      <tspan fill="#f78166"> --identity</tspan>
+    </text>
+  </g>
+
+  <!-- Main name — large, glowing -->
+  <g class="name-group">
+    <!-- name glow layer -->
+    <text x="450" y="172" font-family="'Courier New',Courier,monospace" font-size="52" font-weight="bold"
+          fill="#3a5aed" text-anchor="middle" filter="url(#glowName)" opacity="0.5">PAARTH GUPTA</text>
+    <!-- name crisp layer -->
+    <text x="450" y="172" font-family="'Courier New',Courier,monospace" font-size="52" font-weight="bold"
+          fill="url(#nameGrad)" text-anchor="middle" class="glow-name">PAARTH GUPTA</text>
+  </g>
+
+  <!-- Role line -->
+  <g class="role-group">
+    <text x="450" y="210" font-family="'Courier New',Courier,monospace" font-size="15"
+          fill="#58a6ff" text-anchor="middle" filter="url(#glow4)">
+      Full-Stack  ·  AI Agents  ·  3D Web
+    </text>
+  </g>
+
+  <!-- Divider line -->
+  <line x1="200" y1="226" x2="700" y2="226" stroke="#30363d" stroke-width="1"/>
+
+  <!-- Bottom status strip -->
+  <g class="bottom-group" font-family="'Courier New',Courier,monospace" font-size="12">
+    <!-- status dots -->
+    <circle cx="220" cy="260" r="4" fill="#3fb950" filter="url(#glow4)"/>
+    <text x="231" y="264" fill="#3fb950">ONLINE</text>
+
+    <text x="310" y="264" fill="#30363d">│</text>
+    <text x="320" y="264" fill="#f78166">B.Tech CSE</text>
+    <text x="400" y="264" fill="#e3b341">@ KIET</text>
+    <text x="455" y="264" fill="#6e7681">2024–28</text>
+
+    <text x="530" y="264" fill="#30363d">│</text>
+    <text x="540" y="264" fill="#a371f7">LeetCode</text>
+    <text x="606" y="264" fill="#e6edf3" font-weight="bold">1400+</text>
+
+    <text x="665" y="264" fill="#30363d">│</text>
+    <text x="675" y="264" fill="#58a6ff">IST</text>
+    <text x="700" y="264" fill="#6e7681">UTC+5:30</text>
+  </g>
+
+  <!-- Typing cursor bottom prompt -->
+  <g font-family="'Courier New',Courier,monospace" font-size="12">
+    <text x="30" y="295" fill="#6e7681">
+      <tspan fill="#3fb950">▶</tspan>
+      <tspan fill="#58a6ff"> open</tspan>
+      <tspan fill="#e6edf3"> six_projects</tspan>
+      <tspan fill="#6e7681">.json</tspan>
+      <tspan fill="#e6edf3" class="cursor">█</tspan>
+    </text>
+  </g>
+
+  <!-- Loading dots top-right -->
+  <g font-family="monospace" font-size="20" fill="#58a6ff">
+    <text x="820" y="72" class="d1">·</text>
+    <text x="838" y="72" class="d2">·</text>
+    <text x="856" y="72" class="d3">·</text>
+  </g>
+</svg>

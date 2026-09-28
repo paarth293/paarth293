@@ -1,116 +1,159 @@
-<!-- ========================================================
-     paarth293 — GitHub Profile README
-     Paarth Gupta · Full-Stack · AI Agents · 3D
-     ======================================================== -->
+<!--
+  ╔══════════════════════════════════════════════════════════════════╗
+  ║   paarth293 — GitHub Profile README                             ║
+  ║   Paarth Gupta · Full-Stack · AI Agents · 3D Web                ║
+  ╚══════════════════════════════════════════════════════════════════╝
+-->
 
 <div align="center">
 
-<!-- Animated greeting header -->
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=180&section=header&text=Paarth%20Gupta&fontSize=42&fontColor=ffffff&animation=twinkling&fontAlignY=32&desc=Full-Stack%20%E2%80%A2%20AI%20Agents%20%E2%80%A2%203D%20Web&descAlignY=55&descSize=16" alt="Paarth Gupta" />
-
-<br/>
-
-<!-- Social badges -->
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/paarth-gupta-279aab328/)
-[![LeetCode](https://img.shields.io/badge/LeetCode-1400%2B-FFA116?style=for-the-badge&logo=leetcode&logoColor=white)](https://leetcode.com/u/Paarth_05/)
-[![Email](https://img.shields.io/badge/Email-i.m.paarthgupta%40gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:i.m.paarthgupta@gmail.com)
-[![ClauseGuard Live](https://img.shields.io/badge/ClauseGuard-Live%20App-10B981?style=for-the-badge&logo=vercel&logoColor=white)](https://clause-guard-ruby.vercel.app)
-
-<br/>
-
-```
-┌─────────────────────────────────────────────────────────────────┐
-│  🎓  B.Tech CSE @ KIET Ghaziabad (2024–28)  ·  CGPA 8.57       │
-│  🏆  Quackathon 2026 Track Winner  ·  Smart India Hackathon     │
-│  🔭  Building @ Language Metrics — production SaaS              │
-│  🧠  After hours: agentic AI, self-hardening systems            │
-│  📡  Open to SDE / Full-Stack internships                       │
-└─────────────────────────────────────────────────────────────────┘
-```
+<img src="./assets/header.svg" alt="Paarth Gupta — Full-Stack · AI Agents · 3D Web" width="100%"/>
 
 </div>
 
 ---
 
-## 🚀 Featured Projects
+<div align="center">
 
-> These are the six repos worth opening. Each one is a real system, not a tutorial.
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-connect-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/paarth-gupta-279aab328/)&nbsp;
+[![LeetCode](https://img.shields.io/badge/LeetCode-1400%2B-FFA116?style=flat-square&logo=leetcode&logoColor=white)](https://leetcode.com/u/Paarth_05/)&nbsp;
+[![Gmail](https://img.shields.io/badge/i.m.paarthgupta%40gmail.com-write-EA4335?style=flat-square&logo=gmail&logoColor=white)](mailto:i.m.paarthgupta@gmail.com)&nbsp;
+[![Language Metrics](https://img.shields.io/badge/Language%20Metrics-production-3fb950?style=flat-square&logo=vercel&logoColor=white)](https://languagemetrics.in)&nbsp;
+[![ClauseGuard](https://img.shields.io/badge/ClauseGuard-live%20demo-a371f7?style=flat-square&logo=vercel&logoColor=white)](https://clause-guard-ruby.vercel.app)
 
-<br/>
+</div>
 
-### 🤖 AI & Agents
+---
+
+## `$ cat about.sh`
+
+```bash
+#!/usr/bin/env bash
+# ─────────────────────────────────────────────────────────
+#  WHO AM I
+# ─────────────────────────────────────────────────────────
+
+NAME="Paarth Gupta"
+ROLE="Full-Stack Dev  ·  AI Systems Builder  ·  3D Web Explorer"
+DEGREE="B.Tech CSE @ KIET Ghaziabad (2024–28)  |  CGPA 8.57"
+
+CURRENTLY_BUILDING="Language Metrics — teacher & admin portals"
+                  # React · Node.js · PostgreSQL · Prisma · Razorpay
+
+AFTER_HOURS=(
+  "Agentic AI systems that build their own tools"
+  "Offline / air-gapped LLM pipelines"
+  "Long-term memory engines for coding agents"
+)
+
+ACHIEVEMENTS=(
+  "🏆  Quackathon 2026 — Track Winner, team lead"
+  "🇮🇳  Smart India Hackathon 2026 — Drishti (air-gapped AI refinery)"
+  "💚  LeetCode 1400+ | DSA in Java"
+)
+
+OPEN_TO="SDE internships · Full-Stack internships · AI/ML roles"
+REPLY_TIME="< 24 h  |  IST (UTC+5:30)"
+```
+
+---
+
+## `$ docker ps --active-systems`
+
+<div align="center">
+
+<img src="./assets/systems.svg" alt="Active Systems — 6 running projects" width="100%"/>
+
+</div>
+
+> Click any repo name below to open it.
+
+---
+
+## `$ ls -la projects/`
 
 <table>
 <tr>
 <td width="50%" valign="top">
 
-**[MandateOS](https://github.com/paarth293/MandateOS)**
-&nbsp;`AI` &nbsp;`Agents` &nbsp;`Python`
+### 🤖 [MandateOS](https://github.com/paarth293/MandateOS)
+```
+type    : AI · Agentic OS Layer
+lang    : Python
+status  : ● RUNNING
+```
+Turns high-level mandates into structured execution plans. Autonomous task decomposition with tool orchestration — no human in the loop once deployed.
 
-An agentic OS layer that turns high-level mandates into structured execution plans. Designed for autonomous task decomposition and tool orchestration.
-
-🔗 [View repo →](https://github.com/paarth293/MandateOS)
+**`→`** [github.com/paarth293/MandateOS](https://github.com/paarth293/MandateOS)
 
 </td>
 <td width="50%" valign="top">
 
-**[Knowledge-Agent](https://github.com/paarth293/Knowledge-Agent)**
-&nbsp;`RAG` &nbsp;`LLM` &nbsp;`Python`
+### ⚖️ [ClauseGuard](https://github.com/paarth293/ClauseGuard) `LIVE`
+```
+type    : Legal AI · Full-Stack
+lang    : Python · FastAPI
+status  : ● LIVE  →  vercel.app
+```
+AI contract analyser — detects risky clauses, suggests rewrites, explains legalese in plain English. Deployed and accessible.
 
-A local-first knowledge retrieval agent. Ingests documents, builds a semantic index, and answers queries without sending data to external APIs.
-
-🔗 [View repo →](https://github.com/paarth293/Knowledge-Agent)
+**`→`** [clause-guard-ruby.vercel.app](https://clause-guard-ruby.vercel.app)
 
 </td>
 </tr>
 <tr>
 <td width="50%" valign="top">
 
-**[TrueBrain](https://github.com/paarth293/TrueBrain)**
-&nbsp;`Memory` &nbsp;`Agents` &nbsp;`Python`
+### 🧠 [TrueBrain](https://github.com/paarth293/TrueBrain)
+```
+type    : Memory Engine · AI
+lang    : Python
+status  : ● RUNNING
+```
+Local-first long-term memory for coding agents. Resolves stale context, stores verified facts, surfaces the right memory at inference time.
 
-Long-term memory engine for coding agents. Resolves stale context, stores verified facts, and surfaces relevant memory at inference time.
-
-🔗 [View repo →](https://github.com/paarth293/TrueBrain)
+**`→`** [github.com/paarth293/TrueBrain](https://github.com/paarth293/TrueBrain)
 
 </td>
 <td width="50%" valign="top">
 
-**[PromptForge](https://github.com/paarth293/PromptForge)**
-&nbsp;`Prompt Engineering` &nbsp;`Python` &nbsp;`MIT`
+### 🔍 [Knowledge-Agent](https://github.com/paarth293/Knowledge-Agent)
+```
+type    : RAG · Local LLM
+lang    : Python
+status  : ● RUNNING
+```
+Ingest docs → build semantic index → answer queries. Zero data leaves your machine. Built for air-gapped and privacy-first deployments.
 
-Plain English → validated agent tool schema. A 14-stage pipeline with SHA-256 audit chain. Turns loose natural-language specs into production-ready tool definitions.
-
-🔗 [View repo →](https://github.com/paarth293/PromptForge)
+**`→`** [github.com/paarth293/Knowledge-Agent](https://github.com/paarth293/Knowledge-Agent)
 
 </td>
 </tr>
-</table>
-
-<br/>
-
-### ⚖️ AI + Full-Stack
-
-<table>
 <tr>
 <td width="50%" valign="top">
 
-**[ClauseGuard](https://github.com/paarth293/ClauseGuard)** &nbsp;[![Live](https://img.shields.io/badge/live-clause--guard--ruby.vercel.app-10B981?style=flat-square)](https://clause-guard-ruby.vercel.app)
-&nbsp;`Legal AI` &nbsp;`Python` &nbsp;`Full-Stack`
+### ⚙️ [PromptForge](https://github.com/paarth293/PromptForge)
+```
+type    : Dev Tool · Pipeline
+lang    : Python  (MIT)
+status  : ◑ BUILDING
+```
+Plain English → validated agent tool schema. 14-stage pipeline with SHA-256 audit chain. Turns loose specs into production-ready tool definitions.
 
-AI-powered contract clause analyser. Detects risky clauses, suggests rewrites, and explains legalese in plain English. Deployed on Vercel.
-
-🔗 [View repo →](https://github.com/paarth293/ClauseGuard) · [Live demo →](https://clause-guard-ruby.vercel.app)
+**`→`** [github.com/paarth293/PromptForge](https://github.com/paarth293/PromptForge)
 
 </td>
 <td width="50%" valign="top">
 
-**[Drishti](https://github.com/TechTonicWavee/Drishti)**
-&nbsp;`Hackathon` &nbsp;`Air-gapped` &nbsp;`SIH 2026`
+### 🏭 [Drishti](https://github.com/TechTonicWavee/Drishti) `SIH 2026`
+```
+type    : Air-gapped AI · Hackathon
+lang    : React · FastAPI
+status  : ● DEPLOYED
+```
+Agentic AI workbench for a refinery — zero outbound calls, all inference runs locally inside the network perimeter. Built for Smart India Hackathon.
 
-Air-gapped agentic AI workbench built for Smart India Hackathon. Zero outbound calls — all inference runs locally inside a refinery network perimeter.
-
-🔗 [View repo →](https://github.com/TechTonicWavee/Drishti)
+**`→`** [github.com/TechTonicWavee/Drishti](https://github.com/TechTonicWavee/Drishti)
 
 </td>
 </tr>
@@ -118,94 +161,96 @@ Air-gapped agentic AI workbench built for Smart India Hackathon. Zero outbound c
 
 ---
 
-## 🛠 Tech Stack
+## `$ cat neural_pathways.cfg`
 
 <div align="center">
 
-**Languages**
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
-
-**Frontend**
-![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
-![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
-![Three.js](https://img.shields.io/badge/Three.js-000000?style=for-the-badge&logo=threedotjs&logoColor=white)
-
-**Backend**
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
-![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white)
-![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
-![Prisma](https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white)
-
-**AI / ML**
-![LangChain](https://img.shields.io/badge/LangChain-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white)
-![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white)
-![Ollama](https://img.shields.io/badge/Ollama-000000?style=for-the-badge&logoColor=white)
+<img src="./assets/skills.svg" alt="Skill bars — Neural Pathways" width="100%"/>
 
 </div>
 
 ---
 
-## 📈 GitHub Activity
+## `$ system --specs`
 
 <div align="center">
 
-<img src="https://github-readme-stats.vercel.app/api?username=paarth293&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=58a6ff&icon_color=58a6ff&text_color=c9d1d9&rank_icon=github" width="49%" alt="GitHub stats" />
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=paarth293&theme=tokyonight&hide_border=true&background=0d1117&stroke=58a6ff&ring=58a6ff&fire=ff7800&currStreakLabel=58a6ff" width="49%" alt="GitHub streak" />
-
-<br/>
-
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=paarth293&bg_color=0d1117&color=58a6ff&line=58a6ff&point=ffffff&area=true&hide_border=true" width="100%" alt="Contribution graph" />
+| Module | Technologies |
+|:---|:---|
+| **Languages** | ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white) ![JavaScript](https://img.shields.io/badge/JS-F7DF1E?style=flat-square&logo=javascript&logoColor=black) ![TypeScript](https://img.shields.io/badge/TS-3178C6?style=flat-square&logo=typescript&logoColor=white) ![Java](https://img.shields.io/badge/Java-ED8B00?style=flat-square&logo=openjdk&logoColor=white) |
+| **Frontend** | ![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black) ![Next.js](https://img.shields.io/badge/Next.js-000?style=flat-square&logo=nextdotjs&logoColor=white) ![Three.js](https://img.shields.io/badge/Three.js-000?style=flat-square&logo=threedotjs&logoColor=white) |
+| **Backend** | ![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white) ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white) ![Express](https://img.shields.io/badge/Express-000?style=flat-square&logo=express&logoColor=white) |
+| **Data** | ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white) ![Prisma](https://img.shields.io/badge/Prisma-2D3748?style=flat-square&logo=prisma&logoColor=white) ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white) |
+| **AI / ML** | ![LangChain](https://img.shields.io/badge/LangChain-1C3C3C?style=flat-square&logo=langchain&logoColor=white) ![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=flat-square&logo=openai&logoColor=white) ![Ollama](https://img.shields.io/badge/Ollama-000?style=flat-square&logoColor=white) |
+| **DevOps** | ![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white) ![GitHub Actions](https://img.shields.io/badge/Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white) ![Vercel](https://img.shields.io/badge/Vercel-000?style=flat-square&logo=vercel&logoColor=white) |
 
 </div>
 
 ---
 
-## 🗺 My Journey
+## `$ git log --oneline --journey`
 
-| Year | Milestone |
-|------|-----------|
-| `2024` | Joined B.Tech CSE @ KIET Ghaziabad · CGPA 8.57 |
-| `2025` | Built and shipped VeriVolunte — first full-stack product end to end |
-| `Jun 2026` | **Quackathon 2026 Track Winner** — team lead |
-| `2026` | Smart India Hackathon — built **Drishti**, an offline agentic workbench for a refinery |
-| `Aug 2026` | Joined **Language Metrics** — first production code, real users, real money |
-| `Sep 2026` | Shipped **PromptForge**, **ClauseGuard**, **TrueBrain**, **MandateOS**, **Knowledge-Agent** |
-| `NEXT` | Your team? Open to SDE / Full-Stack internships → [reach out](mailto:i.m.paarthgupta@gmail.com) |
+```
+Sep 2026  feat: shipped MandateOS, ClauseGuard, TrueBrain, Knowledge-Agent, PromptForge
+Aug 2026  feat: first production code at Language Metrics — real users, real money
+Jun 2026  🏆  win: Quackathon 2026 — track winner, team lead
+Jun 2026  feat: built Drishti for Smart India Hackathon (offline agentic AI)
+2025      feat: shipped VeriVolunte — first full-stack product end to end
+2024      init: B.Tech CSE @ KIET Ghaziabad — CGPA 8.57
+────────────────────────────────────────────────────────────
+NEXT      open: SDE / Full-Stack internship → i.m.paarthgupta@gmail.com
+```
 
 ---
 
-## 📊 Language Stats
+## `$ github --metrics`
 
 <div align="center">
 
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=paarth293&layout=compact&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=58a6ff&text_color=c9d1d9&langs_count=8" width="50%" alt="Top languages" />
+<img src="https://github-readme-stats.vercel.app/api?username=paarth293&show_icons=true&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=58a6ff&icon_color=a371f7&text_color=8b949e&ring_color=58a6ff" height="165" alt="GitHub stats"/>
+&nbsp;
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=paarth293&theme=github-dark-blue&hide_border=true&background=0d1117&stroke=21262d&ring=58a6ff&fire=f78166&currStreakLabel=8b949e&dates=6e7681" height="165" alt="GitHub streak"/>
+
+</div>
+
+<div align="center">
+
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=paarth293&bg_color=0d1117&color=58a6ff&line=a371f7&point=58a6ff&area=true&area_color=58a6ff&hide_border=true&custom_title=Contribution%20Graph%20—%20paarth293" width="100%" alt="Contribution graph"/>
 
 </div>
 
 ---
 
-## 🌐 Find Me
+## `$ ping contact`
 
 <div align="center">
 
-| | |
-|---|---|
-| 📮 Email | [i.m.paarthgupta@gmail.com](mailto:i.m.paarthgupta@gmail.com) |
-| 💼 LinkedIn | [paarth-gupta-279aab328](https://www.linkedin.com/in/paarth-gupta-279aab328/) |
-| 🧩 LeetCode | [Paarth_05](https://leetcode.com/u/Paarth_05/) — 1400+ rated |
-| 🌍 Language Metrics | [languagemetrics.in](https://languagemetrics.in) — in production |
-| ⚖️ ClauseGuard | [clause-guard-ruby.vercel.app](https://clause-guard-ruby.vercel.app) |
+```
+PING i.m.paarthgupta@gmail.com
+PING linkedin.com/in/paarth-gupta-279aab328
+PING leetcode.com/u/Paarth_05
 
-Replies within a day, IST (UTC+5:30).
+avg response time: < 24 h  |  timezone: IST (UTC+5:30)
+```
+
+[![Send message](https://img.shields.io/badge/📮%20Send%20a%20message-i.m.paarthgupta%40gmail.com-58a6ff?style=for-the-badge)](mailto:i.m.paarthgupta@gmail.com)
+[![LinkedIn](https://img.shields.io/badge/💼%20LinkedIn-connect-0A66C2?style=for-the-badge)](https://www.linkedin.com/in/paarth-gupta-279aab328/)
 
 </div>
 
-<br/>
+---
 
 <div align="center">
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=100&section=footer" alt="footer wave" />
+
+```
+╔════════════════════════════════════════════════════════════╗
+║   paarth293@architect:~$ _                                 ║
+║                                                            ║
+║   Open to SDE · Full-Stack · AI internships                ║
+║   Building things that think, render, and scale            ║
+╚════════════════════════════════════════════════════════════╝
+```
+
+*Profile auto-updates daily via GitHub Actions*
+
 </div>
