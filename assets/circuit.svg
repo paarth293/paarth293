@@ -1,0 +1,158 @@
+<svg width="900" height="200" viewBox="0 0 900 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @keyframes chipFade {
+        from { opacity:0; transform:scale(0.8) }
+        to   { opacity:1; transform:scale(1) }
+      }
+      @keyframes traceDraw {
+        from { stroke-dashoffset:100 }
+        to   { stroke-dashoffset:0 }
+      }
+      @keyframes pinPulse {
+        0%,100% { fill-opacity:0.4 }
+        50%     { fill-opacity:1 }
+      }
+      @keyframes dataFlow2 {
+        0%   { opacity:0; transform:translateX(-8px) }
+        50%  { opacity:1 }
+        100% { opacity:0; transform:translateX(8px) }
+      }
+
+      .ch1 { animation: chipFade 0.3s ease-out 0.2s both }
+      .ch2 { animation: chipFade 0.3s ease-out 0.4s both }
+      .ch3 { animation: chipFade 0.3s ease-out 0.6s both }
+      .ch4 { animation: chipFade 0.3s ease-out 0.8s both }
+      .ch5 { animation: chipFade 0.3s ease-out 1.0s both }
+      .ch6 { animation: chipFade 0.3s ease-out 1.2s both }
+      .tr  { animation: traceDraw 0.6s ease-out 1.4s both; stroke-dasharray:100 }
+      .pp  { animation: pinPulse 2s ease-in-out infinite }
+    </style>
+    <filter id="chipGlow">
+      <feGaussianBlur stdDeviation="2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="900" height="200" fill="#010409" rx="6"/>
+  <rect x="1" y="1" width="898" height="198" fill="none" stroke="#21262d" stroke-width="1" rx="6"/>
+
+  <!-- Title -->
+  <text x="30" y="22" font-family="'Courier New',monospace" font-size="10" fill="#6e7681">
+    $ lspci --board-layout
+  </text>
+
+  <!-- PCB TRACES (decorative circuit lines) -->
+  <g stroke="#21262d" stroke-width="1" fill="none" class="tr">
+    <!-- horizontal bus lines -->
+    <line x1="60" y1="80" x2="840" y2="80"/>
+    <line x1="60" y1="140" x2="840" y2="140"/>
+    <!-- vertical taps -->
+    <line x1="130" y1="80" x2="130" y2="140"/>
+    <line x1="280" y1="80" x2="280" y2="140"/>
+    <line x1="430" y1="80" x2="430" y2="140"/>
+    <line x1="580" y1="80" x2="580" y2="140"/>
+    <line x1="730" y1="80" x2="730" y2="140"/>
+  </g>
+
+  <!-- Junction dots -->
+  <g fill="#30363d" class="tr">
+    <circle cx="130" cy="80"  r="3"/>
+    <circle cx="280" cy="80"  r="3"/>
+    <circle cx="430" cy="80"  r="3"/>
+    <circle cx="580" cy="80"  r="3"/>
+    <circle cx="730" cy="80"  r="3"/>
+    <circle cx="130" cy="140" r="3"/>
+    <circle cx="280" cy="140" r="3"/>
+    <circle cx="430" cy="140" r="3"/>
+    <circle cx="580" cy="140" r="3"/>
+    <circle cx="730" cy="140" r="3"/>
+  </g>
+
+  <!-- ======= TOP ROW: Languages ======= -->
+
+  <!-- Python chip -->
+  <g class="ch1" transform="translate(60,44)">
+    <rect width="120" height="32" rx="4" fill="#0d1117" stroke="#3776AB" stroke-width="1.5"/>
+    <circle cx="14" cy="16" r="4" fill="#3776AB" class="pp"/>
+    <text x="26" y="20" font-family="'Courier New',monospace" font-size="11" fill="#e6edf3">Python</text>
+    <text x="100" y="20" font-family="'Courier New',monospace" font-size="9" fill="#6e7681">3.x</text>
+  </g>
+
+  <!-- JavaScript chip -->
+  <g class="ch2" transform="translate(210,44)">
+    <rect width="120" height="32" rx="4" fill="#0d1117" stroke="#F7DF1E" stroke-width="1.5"/>
+    <circle cx="14" cy="16" r="4" fill="#F7DF1E" class="pp"/>
+    <text x="26" y="20" font-family="'Courier New',monospace" font-size="11" fill="#e6edf3">JS / TS</text>
+    <text x="100" y="20" font-family="'Courier New',monospace" font-size="9" fill="#6e7681">ES6</text>
+  </g>
+
+  <!-- React chip -->
+  <g class="ch3" transform="translate(360,44)">
+    <rect width="120" height="32" rx="4" fill="#0d1117" stroke="#61DAFB" stroke-width="1.5"/>
+    <circle cx="14" cy="16" r="4" fill="#61DAFB" class="pp"/>
+    <text x="26" y="20" font-family="'Courier New',monospace" font-size="11" fill="#e6edf3">React</text>
+    <text x="96" y="20" font-family="'Courier New',monospace" font-size="9" fill="#6e7681">18.x</text>
+  </g>
+
+  <!-- Next.js chip -->
+  <g class="ch4" transform="translate(510,44)">
+    <rect width="120" height="32" rx="4" fill="#0d1117" stroke="#e6edf3" stroke-width="1.5"/>
+    <circle cx="14" cy="16" r="4" fill="#e6edf3" class="pp"/>
+    <text x="26" y="20" font-family="'Courier New',monospace" font-size="11" fill="#e6edf3">Next.js</text>
+    <text x="100" y="20" font-family="'Courier New',monospace" font-size="9" fill="#6e7681">14</text>
+  </g>
+
+  <!-- Java chip -->
+  <g class="ch5" transform="translate(660,44)">
+    <rect width="120" height="32" rx="4" fill="#0d1117" stroke="#ED8B00" stroke-width="1.5"/>
+    <circle cx="14" cy="16" r="4" fill="#ED8B00" class="pp"/>
+    <text x="26" y="20" font-family="'Courier New',monospace" font-size="11" fill="#e6edf3">Java</text>
+    <text x="96" y="20" font-family="'Courier New',monospace" font-size="9" fill="#6e7681">DSA</text>
+  </g>
+
+  <!-- ======= BOTTOM ROW: Infrastructure ======= -->
+
+  <!-- Node.js chip -->
+  <g class="ch1" transform="translate(60,144)">
+    <rect width="120" height="32" rx="4" fill="#0d1117" stroke="#339933" stroke-width="1.5"/>
+    <circle cx="14" cy="16" r="4" fill="#339933" class="pp"/>
+    <text x="26" y="20" font-family="'Courier New',monospace" font-size="11" fill="#e6edf3">Node.js</text>
+    <text x="100" y="20" font-family="'Courier New',monospace" font-size="9" fill="#6e7681">20</text>
+  </g>
+
+  <!-- FastAPI chip -->
+  <g class="ch2" transform="translate(210,144)">
+    <rect width="120" height="32" rx="4" fill="#0d1117" stroke="#009688" stroke-width="1.5"/>
+    <circle cx="14" cy="16" r="4" fill="#009688" class="pp"/>
+    <text x="26" y="20" font-family="'Courier New',monospace" font-size="11" fill="#e6edf3">FastAPI</text>
+  </g>
+
+  <!-- PostgreSQL chip -->
+  <g class="ch3" transform="translate(360,144)">
+    <rect width="120" height="32" rx="4" fill="#0d1117" stroke="#4169E1" stroke-width="1.5"/>
+    <circle cx="14" cy="16" r="4" fill="#4169E1" class="pp"/>
+    <text x="26" y="20" font-family="'Courier New',monospace" font-size="11" fill="#e6edf3">Postgres</text>
+  </g>
+
+  <!-- LangChain chip -->
+  <g class="ch4" transform="translate(510,144)">
+    <rect width="120" height="32" rx="4" fill="#0d1117" stroke="#a371f7" stroke-width="1.5"/>
+    <circle cx="14" cy="16" r="4" fill="#a371f7" class="pp"/>
+    <text x="26" y="20" font-family="'Courier New',monospace" font-size="11" fill="#e6edf3">LangChain</text>
+  </g>
+
+  <!-- Three.js chip -->
+  <g class="ch5" transform="translate(660,144)">
+    <rect width="120" height="32" rx="4" fill="#0d1117" stroke="#58a6ff" stroke-width="1.5"/>
+    <circle cx="14" cy="16" r="4" fill="#58a6ff" class="pp"/>
+    <text x="26" y="20" font-family="'Courier New',monospace" font-size="11" fill="#e6edf3">Three.js</text>
+    <text x="100" y="20" font-family="'Courier New',monospace" font-size="9" fill="#6e7681">3D</text>
+  </g>
+
+  <!-- Bus labels -->
+  <g font-family="'Courier New',monospace" font-size="8" fill="#30363d" class="tr">
+    <text x="850" y="83">BUS:0</text>
+    <text x="850" y="143">BUS:1</text>
+  </g>
+</svg>
