@@ -26,11 +26,11 @@ def build_all():
                     "Agentic AI certified. Limitations: Rust and Solidity at working knowledge.")
     doc.add(card(doc))
     # header strip
-    doc.add(f'<path d="M1 18 a17 17 0 0 1 17 -17 h{W - 36} a17 17 0 0 1 17 17 v58 h-{W - 2} z" fill="{PANEL}"/>')
+    doc.add(f'<path d="M1 9 a8 8 0 0 1 8 -8 h{W - 18} a8 8 0 0 1 8 8 v67 h-{W - 2} z" fill="{PANEL}"/>')
     doc.add(f'<line x1="1" y1="76" x2="{W - 1}" y2="76" stroke="{LINE}"/>')
     doc.add(doc.text("mono-bold", "MODEL CARD", 36, 34, 11, DIM, tracking=2))
-    doc.add(doc.text("display", "paarth-1", 36, 62, 26, INK))
-    x = 36 + measure("display", "paarth-1", 26) + 16
+    doc.add(doc.text("display", "paarth-1", 36, 64, 34, INK))
+    x = 36 + measure("display", "paarth-1", 34) + 16
     for label, col in (("AI ENGINEER", ROLE["ai"]), ("FULL-STACK", ROLE["web"]), ("OPEN TO INTERNSHIPS", GREEN)):
         s, w = chip(doc, x, 42, label, col, size=10.5, h=22, pad=9)
         doc.add(s)
@@ -70,7 +70,7 @@ def build_all():
         w = measure("mono", label, 12.5) + 22
         if cx + w > L + CW:
             cx, cy = L, cy + 36
-        doc.add(f'<rect x="{num(cx)}" y="{cy}" width="{num(w)}" height="28" rx="8" fill="{mix(BG, ROLE[k], .12)}" '
+        doc.add(f'<rect x="{num(cx)}" y="{cy}" width="{num(w)}" height="28" rx="3" fill="none" '
                 f'stroke="{ROLE[k]}" stroke-opacity=".4"/>' + doc.text("mono", label, cx + 11, cy + 18.5, 12.5, INK))
         cx += w + 8
     assert cy + 28 <= H - 24, "capabilities overflow"
@@ -86,14 +86,14 @@ def build_all():
     doc.style(".bar{transform-box:fill-box;transform-origin:0 50%}")
     for i, (name, score, note) in enumerate(evals):
         yy = y + 30 + i * 58
-        doc.add(f'<rect x="{R}" y="{yy}" width="{CW}" height="48" rx="10" fill="{PANEL}" stroke="{LINE}"/>')
+        doc.add(f'<rect x="{R}" y="{yy}" width="{CW}" height="48" rx="4" fill="{PANEL}" stroke="{LINE}"/>')
         doc.add(doc.text("body-bold", name, R + 16, yy + 21, 15, INK))
         doc.add(doc.text("body", note, R + 16, yy + 39, 12.5, MUTED, max_width=CW - 120, where="eval note"))
-        doc.add(doc.text("display", score, R + CW - 16, yy + 32, 24, INK, anchor="end"))
+        doc.add(doc.text("display", score, R + CW - 16, yy + 35, 32, INK, anchor="end"))
         # scanning highlight, one row after another
         kf = track(doc, 7.5, [(0, "opacity:0"), (i * 1.5, "opacity:0"), (i * 1.5 + .2, "opacity:1"), (i * 1.5 + 1.3, "opacity:1"),
                                (i * 1.5 + 1.5, "opacity:0")])
-        doc.add(f'<rect x="{R}" y="{yy}" width="{CW}" height="48" rx="10" fill="none" stroke="{GREEN}" stroke-opacity=".7" '
+        doc.add(f'<rect x="{R}" y="{yy}" width="{CW}" height="48" rx="4" fill="none" stroke="{GREEN}" stroke-opacity=".7" '
                 f'opacity="0" style="{anim(kf, 7.5)}"/>')
 
     # --- Limitations

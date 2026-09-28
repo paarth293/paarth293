@@ -16,7 +16,7 @@ from design.kit import BG, PANEL, LINE, INK, INK_2, MUTED, DIM, GREEN, ROLE, car
 from design.motion import track, anim
 
 W, H = 1000, 404
-RAMP = ["#27306A", ROLE["web"], "#9A6BFF", ROLE["3d"], ROLE["ai"]]
+RAMP = ["#3B3530", "#6B5B4C", "#A07B5A", "#D98A55", ROLE["ai"]]
 
 
 def ramp(t: float) -> str:
@@ -51,7 +51,7 @@ def render(weeks, *, sample: bool = False) -> str:
                     f"best day {st['best']} contributions. Drawn as an isometric city." + (" (sample data)" if sample else ""))
     doc.add(card(doc))
     # header stats
-    doc.add(doc.text("display", "The last 52 weeks", 40, 64, 28, INK))
+    doc.add(doc.text("display", "The last 52 weeks", 40, 66, 36, INK))
     items = [(f"{st['total']:,}", "CONTRIBUTIONS"), (f"{st['longest']}d", "LONGEST STREAK"),
              (f"{st['best']}", "BEST DAY"), (f"{st['active']}", "ACTIVE DAYS")]
     x = 40
@@ -91,9 +91,9 @@ def render(weeks, *, sample: bool = False) -> str:
 
     # ground plate
     plate = [P(-0.3, -0.3), P(n + 0.3, -0.3), P(n + 0.3, 7.3), P(-0.3, 7.3)]
-    doc.add(f'<polygon points="{pts(plate)}" fill="#101218" stroke="{LINE}"/>')
+    doc.add(f'<polygon points="{pts(plate)}" fill="{PANEL}" stroke="{LINE}"/>')
     edge = [P(-0.3, -0.3), P(n + 0.3, -0.3), P(n + 0.3, -0.3, -6), P(-0.3, -0.3, -6)]
-    doc.add(f'<polygon points="{pts(edge)}" fill="#171A22"/>')
+    doc.add(f'<polygon points="{pts(edge)}" fill="#1E1C1A"/>')
 
     fw = 0.72
     cells = []
@@ -107,7 +107,7 @@ def render(weeks, *, sample: bool = False) -> str:
         x0, y0 = wi + (1 - fw) / 2, di + (1 - fw) / 2
         if c == 0:
             poly = [P(x0, y0), P(x0 + fw, y0), P(x0 + fw, y0 + fw), P(x0, y0 + fw)]
-            groups.setdefault(wi, []).append(f'<polygon points="{pts(poly)}" fill="#1A1D27"/>')
+            groups.setdefault(wi, []).append(f'<polygon points="{pts(poly)}" fill="#24211E"/>')
             continue
         t = (c / maxc) ** 0.6
         z = 5 + t * zmax

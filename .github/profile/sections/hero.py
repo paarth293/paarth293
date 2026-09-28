@@ -10,7 +10,7 @@ Static frame (reduced motion / no animation): question 1, fully answered.
 from __future__ import annotations
 
 from design.doc import Doc, num
-from design.kit import (BG, PANEL, PANEL_2, LINE, INK, INK_2, MUTED, DIM, GREEN, ROLE, card, dot_grid, chip, mix)
+from design.kit import (BG, PANEL, PANEL_2, LINE, INK, INK_2, MUTED, DIM, GREEN, ACCENT, ROLE, card, chip, mix)
 from design.motion import track, anim
 from design.type import measure, wrap
 
@@ -50,13 +50,7 @@ def build() -> str:
                     "An animated chat answers recruiter questions using retrieval over his résumé.")
     doc.style(".fc{transform-box:fill-box;transform-origin:50% 50%}.sx{transform-box:fill-box;transform-origin:0 50%}")
     doc.add(card(doc))
-    doc.add(f'<clipPath id="hc"><rect x="1" y="1" width="{W-2}" height="{H-2}" rx="17"/></clipPath><g clip-path="url(#hc)">')
-    doc.add(dot_grid(doc, 0, 0, W, H))
-    doc.add_def("g1", f'<radialGradient id="g1" cx="80%" cy="10%" r="60%"><stop offset="0" stop-color="{ROLE["ai"]}" stop-opacity=".16"/>'
-                      f'<stop offset="1" stop-color="{BG}" stop-opacity="0"/></radialGradient>')
-    doc.add_def("g2", f'<radialGradient id="g2" cx="5%" cy="95%" r="60%"><stop offset="0" stop-color="{ROLE["web"]}" stop-opacity=".16"/>'
-                      f'<stop offset="1" stop-color="{BG}" stop-opacity="0"/></radialGradient>')
-    doc.add(f'<rect width="{W}" height="{H}" fill="url(#g1)"/><rect width="{W}" height="{H}" fill="url(#g2)"/>')
+    doc.add(f'<clipPath id="hc"><rect x="1" y="1" width="{W-2}" height="{H-2}" rx="8"/></clipPath><g clip-path="url(#hc)">')
     _left(doc)
     _chat(doc)
     doc.add("</g>")
@@ -66,58 +60,44 @@ def build() -> str:
 # --------------------------------------------------------------------- left --
 def _left(doc: Doc) -> None:
     x0, maxw = 48, 392
-    doc.add(f'<circle cx="{x0 + 5}" cy="60" r="5" fill="{GREEN}"/>')
-    pulse = track(doc, 2.4, [(0, "opacity:.7;transform:scale(1)"), (2.0, "opacity:0;transform:scale(3.2)"), (2.4, "opacity:0;transform:scale(3.2)")])
-    doc.add(f'<circle cx="{x0 + 5}" cy="60" r="5" fill="none" stroke="{GREEN}" class="fc" opacity="0" style="{anim(pulse, 2.4)}"/>')
-    doc.add(doc.text("mono-bold", "OPEN TO AI & FULL-STACK INTERNSHIPS", x0 + 20, 64.5, 11.5, GREEN, tracking=1.1,
-                     max_width=maxw - 20, where="hero open"))
+    blink = track(doc, 2.4, [(0, "opacity:1"), (1.6, "opacity:1"), (1.7, "opacity:.25"), (2.4, "opacity:.25")])
+    doc.add(f'<rect x="{x0}" y="54" width="8" height="8" fill="{GREEN}" style="{anim(blink, 2.4)}"/>')
+    doc.add(doc.text("mono-bold", "OPEN TO AI & FULL-STACK INTERNSHIPS", x0 + 18, 62, 11.5, GREEN, tracking=1.1,
+                     max_width=maxw - 18, where="hero open"))
+    doc.add(doc.text("mono-bold", "paarth-1", x0, 96, 11.5, ACCENT, tracking=0.6))
+    doc.add(doc.text("mono", "  trained at KIET · deployed in production", x0 + measure("mono-bold", "paarth-1", 11.5, 0.6), 96,
+                     11.5, MUTED, max_width=maxw - 70, where="hero tag"))
 
-    # model-style tag
-    s, w = chip(doc, x0, 88, "paarth-1", ROLE["agent"], fkey="mono-bold", size=12, h=26, pad=11)
-    doc.add(s)
-    doc.add(doc.text("mono", "trained at KIET · deployed in production", x0 + w + 10, 105.5, 11, MUTED,
-                     max_width=maxw - w - 10, where="hero tag"))
-
-    doc.add(doc.text("display", "Paarth Gupta", x0 - 3, 182, 62, INK, max_width=maxw + 20, where="hero name"))
-
-    # gradient role line, rendered through a mask so the gradient spans the whole line
-    role = "AI & full-stack engineer"
-    rw = measure("display", role, 30)
-    doc.add_def("rg", f'<linearGradient id="rg" gradientUnits="userSpaceOnUse" x1="{x0}" y1="0" x2="{x0 + rw * 2}" y2="0" spreadMethod="reflect">'
-                      f'<stop offset="0" stop-color="{ROLE["ai"]}"/><stop offset=".25" stop-color="{ROLE["agent"]}"/>'
-                      f'<stop offset=".5" stop-color="{ROLE["web"]}"/><stop offset=".75" stop-color="{ROLE["agent"]}"/>'
-                      f'<stop offset="1" stop-color="{ROLE["ai"]}"/></linearGradient>')
-    doc.add_def("rm", f'<mask id="rm" maskUnits="userSpaceOnUse" x="0" y="0" width="{W}" height="{H}">'
-                      + doc.text("display", role, x0, 226, 30, "#fff") + "</mask>")
-    shimmer = track(doc, 8.0, [(0, "transform:translateX(0px)"), (8.0, f"transform:translateX({num(-rw)}px)")])
-    doc.add(f'<g mask="url(#rm)"><rect x="{x0}" y="190" width="{num(rw * 3)}" height="46" fill="url(#rg)" '
-            f'style="{anim(shimmer, 8.0)}"/></g>')
-    assert rw <= maxw, "role line overflow"
+    doc.add(doc.text("display", "Paarth Gupta", x0 - 4, 180, 80, INK, max_width=maxw + 20, where="hero name"))
+    # role line: serif italic, only "AI" carries the accent
+    x = x0
+    for part, col in (("AI", ACCENT), (" & full-stack engineer", INK)):
+        doc.add(doc.text("serif-italic", part, x, 226, 36, col))
+        x += measure("serif-italic", part, 36)
+    assert x - x0 <= maxw, "role line overflow"
 
     for i, ln in enumerate(["I build LLM products end to end: RAG pipelines,",
                             "agents, and the Next.js + Node apps that",
                             "stream their answers to real users."]):
-        doc.add(doc.text("body", ln, x0, 266 + i * 24, 16.5, INK_2, max_width=maxw, where="hero sub"))
+        doc.add(doc.text("body", ln, x0, 270 + i * 24, 16.5, INK_2, max_width=maxw, where="hero sub"))
 
-    # domain chips
+    # domain tags
     chips = [("LLMs", "ai"), ("RAG", "ai"), ("AGENTIC AI", "agent"), ("NEXT.JS", "web"), ("NODE.JS", "web")]
     cx, cy = x0, 350
     for label, k in chips:
-        wch = measure("mono-bold", label, 12, 0.6) + 22
-        if cx + wch > x0 + maxw:
-            cx, cy = x0, cy + 34
-        s, w = chip(doc, cx, cy, label, ROLE[k], size=12, h=26, pad=11)
+        s, w = chip(doc, cx, cy, label, ROLE[k], size=12, h=26, pad=10)
         doc.add(s)
         cx += w + 8
+    assert cx - 8 <= x0 + maxw, "chips overflow"
 
-    # quick stats
+    # quick stats, set in the serif
     stats = [("8.57", "CGPA"), ("1400+", "LEETCODE"), ("1st", "QUACKATHON '26")]
     sx = x0
     for big, lab in stats:
-        doc.add(doc.text("display", big, sx, 436, 26, INK))
-        doc.add(doc.text("mono", lab, sx, 456, 10, DIM, tracking=1.2))
-        sx += max(measure("display", big, 26), measure("mono", lab, 10, 1.2)) + 30
-    assert sx - 30 <= x0 + maxw, "stats overflow"
+        doc.add(doc.text("display", big, sx, 438, 38, INK))
+        doc.add(doc.text("mono", lab, sx, 458, 10, DIM, tracking=1.2))
+        sx += max(measure("display", big, 38), measure("mono", lab, 10, 1.2)) + 34
+    assert sx - 34 <= x0 + maxw, "stats overflow"
     doc.add(f'<line x1="{x0}" y1="486" x2="{x0 + maxw}" y2="486" stroke="{LINE}"/>')
     doc.add(doc.text("mono", "Full-stack intern @ Language Metrics · KIET CSE '28", x0, 512, 11.5, MUTED,
                      max_width=maxw, where="hero foot"))
@@ -126,13 +106,11 @@ def _left(doc: Doc) -> None:
 # --------------------------------------------------------------------- chat --
 def _chat(doc: Doc) -> None:
     px, py, pw, ph = 470, 30, 500, 480
-    doc.add(f'<rect x="{px}" y="{py}" width="{pw}" height="{ph}" rx="16" fill="{PANEL}" stroke="{LINE}"/>')
+    doc.add(f'<rect x="{px}" y="{py}" width="{pw}" height="{ph}" rx="6" fill="{PANEL}" stroke="{LINE}"/>')
     doc.add(f'<line x1="{px}" y1="{py + 44}" x2="{px + pw}" y2="{py + 44}" stroke="{LINE}"/>')
-    for k, c in enumerate(("#FF5F57", "#FEBC2E", "#28C840")):
-        doc.add(f'<circle cx="{px + 20 + k * 13}" cy="{py + 22}" r="4.2" fill="{c}" opacity=".85"/>')
-    doc.add(doc.text("mono", "paarth-1 · rag over résumé.md", px + 72, py + 26.5, 12, INK_2))
+    doc.add(doc.text("mono", "paarth-1 — rag over résumé.md", px + 20, py + 26.5, 12, INK_2))
     blink = track(doc, 1.6, [(0, "opacity:1"), (0.8, "opacity:.3"), (1.6, "opacity:1")])
-    doc.add(f'<circle cx="{px + pw - 94}" cy="{py + 22}" r="4" fill="{GREEN}" style="{anim(blink, 1.6)}"/>')
+    doc.add(f'<rect x="{px + pw - 98}" y="{py + 18}" width="7" height="7" fill="{GREEN}" style="{anim(blink, 1.6)}"/>')
     doc.add(doc.text("mono", "streaming", px + pw - 84, py + 26.5, 11.5, GREEN))
 
     ix, iw = px + 24, pw - 48
@@ -150,8 +128,8 @@ def _chat(doc: Doc) -> None:
         by = py + 64
         bub = show(doc, t["type"] - .2, t["off"])
         seg_group.append(f'<g opacity="{static}" style="{anim(bub, T, D)}">'
-                         f'<rect x="{num(bx)}" y="{by}" width="{num(qw + 32)}" height="38" rx="12" fill="{mix(BG, ROLE["web"], .28)}" '
-                         f'stroke="{ROLE["web"]}" stroke-opacity=".55"/></g>')
+                         f'<rect x="{num(bx)}" y="{by}" width="{num(qw + 32)}" height="38" rx="4" fill="{PANEL_2}" '
+                         f'stroke="{INK_2}" stroke-opacity=".35"/></g>')
         runs, _ = doc.glyph_runs("mono", qa["q"], bx + 16, by + 24, qsize)
         for i, (ch, mk, gx, adv) in enumerate(runs):
             if not mk:
@@ -170,7 +148,7 @@ def _chat(doc: Doc) -> None:
         for j, (name, score) in enumerate(qa["chunks"]):
             cy = ry + 14 + j * 34
             a = t["retr"] + 0.25 + j * 0.3
-            row = (f'<rect x="{ix}" y="{cy}" width="{iw}" height="28" rx="8" fill="{PANEL_2}" stroke="{LINE}"/>'
+            row = (f'<rect x="{ix}" y="{cy}" width="{iw}" height="28" rx="4" fill="{PANEL_2}" stroke="{LINE}"/>'
                    f'<rect x="{ix + 12}" y="{cy + 8}" width="9" height="12" rx="2" fill="none" stroke="{MUTED}" stroke-width="1.2"/>'
                    + doc.text("mono", name, ix + 30, cy + 18.5, 12, INK_2)
                    + doc.text("mono-bold", f"{score:.2f}", ix + iw - 12, cy + 18.5, 12, INK, anchor="end"))

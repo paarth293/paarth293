@@ -110,7 +110,9 @@ _FONTS: dict[str, Font] = {}
 
 def font(key: str) -> Font:
     files = {
-        "display": "BricolageGrotesque-Bold.ttf",
+        "display": "InstrumentSerif-Regular.ttf",
+        "serif-italic": "InstrumentSerif-Italic.ttf",
+        "grotesk": "BricolageGrotesque-Bold.ttf",
         "display-regular": "BricolageGrotesque-Regular.ttf",
         "body": "InstrumentSans-Regular.ttf",
         "body-bold": "InstrumentSans-Bold.ttf",

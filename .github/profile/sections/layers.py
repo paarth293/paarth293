@@ -34,7 +34,7 @@ def build_all():
                     "agents (LangGraph, LangChain), retrieval (RAG, Qdrant, ChromaDB, sqlite-vec), data (PostgreSQL, Prisma, "
                     "Drizzle, Supabase) and models (Groq, Ollama) — each shipped in a real project.")
     doc.add(card(doc))
-    doc.add(doc.text("display", "One engineer, every layer of an AI product", 40, 52, 26, INK, max_width=660))
+    doc.add(doc.text("display", "One engineer, every layer of an AI product", 40, 56, 34, INK, max_width=660))
     doc.add(doc.text("mono", "↓ request", W - 190, 50, 11.5, ROLE["web"]))
     doc.add(doc.text("mono", "↑ tokens", W - 100, 50, 11.5, ROLE["ai"]))
     cols = colors()
@@ -48,13 +48,13 @@ def build_all():
     for i, (name, tools, shipped) in enumerate(LAYERS):
         y = top + i * (rh + gap)
         c = cols[i]
-        glow = track(doc, P, [(0, f"stroke:{LINE}"), (down_t[i], f"stroke:{LINE}"), (down_t[i] + .1, f"stroke:{ROLE['web']}"),
+        glow = track(doc, P, [(0, f"stroke:{LINE}"), (down_t[i], f"stroke:{LINE}"), (down_t[i] + .1, f"stroke:{INK_2}"),
                               (down_t[i] + .5, f"stroke:{LINE}"), (up_t[i], f"stroke:{LINE}"), (up_t[i] + .1, f"stroke:{ROLE['ai']}"),
                               (up_t[i] + .5, f"stroke:{LINE}")])
-        doc.add(f'<rect x="84" y="{y}" width="{W - 124}" height="{rh}" rx="12" fill="{PANEL}" stroke="{LINE}" '
+        doc.add(f'<rect x="84" y="{y}" width="{W - 124}" height="{rh}" rx="4" fill="{PANEL}" stroke="{LINE}" '
                 f'stroke-width="1.5" style="{anim(glow, P)}"/>')
         doc.add(f'<rect x="84" y="{y + 14}" width="4" height="{rh - 28}" rx="2" fill="{c}"/>')
-        doc.add(f'<circle cx="{spine_x}" cy="{num(y + rh / 2)}" r="7" fill="{BG}" stroke="{c}" stroke-width="2.5"/>')
+        doc.add(f'<rect x="{spine_x - 6}" y="{num(y + rh / 2 - 6)}" width="12" height="12" fill="{BG}" stroke="{c}" stroke-width="2"/>')
         doc.add(doc.text("mono-bold", f"{i + 1:02d}  {name}", 106, y + 28, 11.5, c, tracking=1.3))
         doc.add(doc.text("mono", tools, 106, y + 52, 12.5, INK, max_width=522, where=f"layer tools {name}"))
         doc.add(f'<line x1="642" y1="{y + 16}" x2="642" y2="{y + rh - 16}" stroke="{LINE}"/>')

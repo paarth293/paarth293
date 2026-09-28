@@ -15,7 +15,7 @@ from design.motion import track, anim
 
 
 def frame(doc: Doc, x, y, w, h, label: str | None = None) -> str:
-    s = f'<rect x="{num(x)}" y="{num(y)}" width="{num(w)}" height="{num(h)}" rx="14" fill="{PANEL}" stroke="{LINE}"/>'
+    s = f'<rect x="{num(x)}" y="{num(y)}" width="{num(w)}" height="{num(h)}" rx="5" fill="{PANEL}" stroke="{LINE}"/>'
     if label:
         s += doc.text("mono", label, x + 16, y + 26, 11, DIM, tracking=1.2)
     return s

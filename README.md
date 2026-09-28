@@ -11,10 +11,10 @@
 
 **I'm Paarth, and I build AI products end to end.** LLM features with retrieval and agents underneath, and the Next.js + Node apps that put them in front of real users. By day I'm a full-stack intern at [Language Metrics](https://languagemetrics.in), shipping to a live SaaS. I'm a third-year CSE student at KIET (CGPA 8.57), a Quackathon 2026 track winner, and certified in agentic AI by Oracle.
 
-- 🧠 &nbsp;**AI** — LLMs · RAG (Qdrant, ChromaDB, sqlite-vec) · agentic AI (LangGraph, LangChain) · local models (Ollama) · evals (RAGAS)
-- ⚡ &nbsp;**Full-stack** — Next.js · React · TypeScript · Node.js · Express · FastAPI · PostgreSQL + Prisma · JWT / RBAC · payments
-- 🚢 &nbsp;**Shipping now** — the Teacher & Admin portals behind [languagemetrics.in](https://languagemetrics.in)
-- 🎯 &nbsp;**Looking for** — AI engineering and full-stack internships. [Email me](mailto:i.m.paarthgupta@gmail.com).
+**AI** — LLMs, RAG (Qdrant, ChromaDB, sqlite-vec), agentic AI (LangGraph, LangChain), local models (Ollama), evals (RAGAS)<br>
+**Full-stack** — Next.js, React, TypeScript, Node.js, Express, FastAPI, PostgreSQL + Prisma, JWT / RBAC, payments<br>
+**Shipping now** — the Teacher & Admin portals behind [languagemetrics.in](https://languagemetrics.in)<br>
+**Looking for** — AI engineering and full-stack internships. [Email me](mailto:i.m.paarthgupta@gmail.com).
 
 <br>
 

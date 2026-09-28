@@ -53,10 +53,10 @@ def build_all():
       "the Next.js + Node apps that put them in front of real users. By day I'm a full-stack intern at "
       f"[Language Metrics]({C.LANGUAGE_METRICS}), shipping to a live SaaS. I'm a third-year CSE student at KIET "
       "(CGPA 8.57), a Quackathon 2026 track winner, and certified in agentic AI by Oracle.\n")
-    w("- 🧠 &nbsp;**AI** — LLMs · RAG (Qdrant, ChromaDB, sqlite-vec) · agentic AI (LangGraph, LangChain) · local models (Ollama) · evals (RAGAS)\n"
-      "- ⚡ &nbsp;**Full-stack** — Next.js · React · TypeScript · Node.js · Express · FastAPI · PostgreSQL + Prisma · JWT / RBAC · payments\n"
-      f"- 🚢 &nbsp;**Shipping now** — the Teacher & Admin portals behind [languagemetrics.in]({C.LANGUAGE_METRICS})\n"
-      f"- 🎯 &nbsp;**Looking for** — AI engineering and full-stack internships. [Email me]({mail}).\n")
+    w("**AI** — LLMs, RAG (Qdrant, ChromaDB, sqlite-vec), agentic AI (LangGraph, LangChain), local models (Ollama), evals (RAGAS)<br>\n"
+      "**Full-stack** — Next.js, React, TypeScript, Node.js, Express, FastAPI, PostgreSQL + Prisma, JWT / RBAC, payments<br>\n"
+      f"**Shipping now** — the Teacher & Admin portals behind [languagemetrics.in]({C.LANGUAGE_METRICS})<br>\n"
+      f"**Looking for** — AI engineering and full-stack internships. [Email me]({mail}).\n")
     w("<br>\n")
     w(f'<p>{head("layers", "01 — Every layer")}</p>\n<p>{img("layers.svg", ALT["layers"])}</p>\n<br>\n')
     w(f'<p>{head("card", "02 — Model card")}</p>\n<p>{img("modelcard.svg", ALT["modelcard"])}</p>\n<br>\n')

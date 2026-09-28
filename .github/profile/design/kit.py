@@ -1,8 +1,9 @@
 """Palette, shared components and 3D projection helpers.
 
-The palette is the portfolio's, moved to night: the portfolio's paper
-(#F3F1EA) becomes the ink, and its three accent colours become the three
-roles this profile is built around.
+Editorial, not neon: warm graphite and bone, one signal-orange accent used
+sparingly, sage for "live". Hairlines instead of glows, small radii instead
+of pills, no gradients, no dot grids. Anything that looked like a default
+AI landing page was removed on purpose.
 """
 from __future__ import annotations
 
@@ -11,23 +12,25 @@ import math
 from .doc import Doc, num
 
 # ---------------------------------------------------------------- palette --
-BG = "#0B0C10"        # page-card background
-PANEL = "#12141A"     # inner panels
-PANEL_2 = "#171A22"
-LINE = "#252936"      # hairlines, borders
-GRID = "#1B1E27"
-INK = "#EDEBE4"       # = portfolio paper colour
-INK_2 = "#BDBBB3"
-MUTED = "#8B8E99"
-DIM = "#5C606C"
-GREEN = "#3DDC84"
+BG = "#141312"        # warm graphite (page cards)
+PANEL = "#1A1917"     # inset panels
+PANEL_2 = "#211F1D"
+LINE = "#2E2B28"      # hairlines
+GRID = "#1F1D1B"
+INK = "#EDE8DD"       # bone
+INK_2 = "#BDB6A9"
+MUTED = "#8C857A"
+DIM = "#625C54"
+ACCENT = "#FF5A1F"    # signal orange: the only saturated colour on the page
+GREEN = "#9FB585"     # sage, for "live" / "ok"
 
+# The old per-role rainbow collapses into one warm ramp: bone -> tan -> orange.
 ROLE = {
-    "web": "#5B6CFF",   # Next.js & full-stack   (portfolio cobalt, lifted for dark)
-    "3d": "#F5A300",    # 3D / Three.js          (portfolio amber)
-    "ai": "#FF3B55",    # AI / agents            (portfolio red, lifted for dark)
+    "web": "#D8D1C3",     # full-stack: bone
+    "3d": "#8C857A",      # foundations / misc: stone
+    "agent": "#C99A6B",   # agents / orchestration: tan
+    "ai": ACCENT,         # AI: the accent
 }
-ROLE["agent"] = "#A77BFF"   # agents / orchestration: between AI red and web blue
 ROLE_NAME = {"web": "NEXT.JS", "3d": "3D", "ai": "AI"}
 
 
@@ -38,28 +41,31 @@ def mix(c1: str, c2: str, t: float) -> str:
 
 
 # ------------------------------------------------------------- components --
-def card(doc: Doc, x=0, y=0, w=None, h=None, r=18, fill=BG, stroke=LINE) -> str:
+def card(doc: Doc, x=0, y=0, w=None, h=None, r=8, fill=BG, stroke=LINE) -> str:
     w = doc.w if w is None else w
     h = doc.h if h is None else h
+    r = min(r, 8)
     return (f'<rect x="{num(x + .5)}" y="{num(y + .5)}" width="{num(w - 1)}" height="{num(h - 1)}" '
             f'rx="{r}" fill="{fill}" stroke="{stroke}"/>')
 
 
-def dot_grid(doc: Doc, x, y, w, h, step=22, color=GRID, r=1.1) -> str:
-    pid = doc.add_def("dotgrid", f'<pattern id="dotgrid" width="{step}" height="{step}" patternUnits="userSpaceOnUse">'
-                                 f'<circle cx="{step/2}" cy="{step/2}" r="{r}" fill="{color}"/></pattern>')
-    return f'<rect x="{x}" y="{y}" width="{w}" height="{h}" fill="url(#{pid})"/>'
+def dot_grid(doc: Doc, x, y, w, h, **_ignored) -> str:
+    """Retired: dot grids read as template decoration. Kept as a no-op."""
+    return ""
 
 
 def chip(doc: Doc, x, y, text, color, *, fkey="mono-bold", size=12, pad=10, h=24, filled=False) -> tuple[str, float]:
+    """A square-cornered tag: hairline outline, no tinted fill."""
     from .type import measure
     tw = measure(fkey, text, size, 0.6)
     w = tw + pad * 2
-    fill = color if filled else mix(BG, color, 0.14)
-    tcol = BG if filled else color
-    stroke = color if not filled else color
-    s = (f'<rect x="{num(x)}" y="{num(y)}" width="{num(w)}" height="{h}" rx="{h/2}" fill="{fill}" '
-         f'stroke="{stroke}" stroke-opacity="{0 if filled else .45}"/>')
+    if filled:
+        s = f'<rect x="{num(x)}" y="{num(y)}" width="{num(w)}" height="{h}" rx="3" fill="{color}"/>'
+        tcol = BG
+    else:
+        s = (f'<rect x="{num(x + .5)}" y="{num(y + .5)}" width="{num(w - 1)}" height="{h - 1}" rx="3" fill="none" '
+             f'stroke="{color}" stroke-opacity=".55"/>')
+        tcol = color
     s += doc.text(fkey, text, x + pad, y + h / 2 + size * 0.36, size, tcol, tracking=0.6)
     return s, w
 

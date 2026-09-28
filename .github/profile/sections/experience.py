@@ -8,12 +8,14 @@ from design.type import wrap, measure
 from sections.illus import frame
 
 # ---------------------------------------------------------------- experience --
-def portal(doc: Doc, x, y, w, h, color=ROLE["web"]) -> str:
+def portal(doc: Doc, x, y, w, h, color=None) -> str:
+    from design.kit import ACCENT
+    color = color or ACCENT
     P = 8.0
     out = frame(doc, x, y, w, h)
     # sidebar
     sw = 64
-    out += f'<rect x="{x + 1}" y="{y + 1}" width="{sw}" height="{h - 2}" rx="13" fill="{PANEL_2}"/>'
+    out += f'<rect x="{x + 1}" y="{y + 1}" width="{sw}" height="{h - 2}" rx="5" fill="{PANEL_2}"/>'
     out += f'<line x1="{x + sw}" y1="{y + 1}" x2="{x + sw}" y2="{y + h - 1}" stroke="{LINE}"/>'
     for k in range(5):
         yy = y + 28 + k * 30
@@ -34,13 +36,13 @@ def portal(doc: Doc, x, y, w, h, color=ROLE["web"]) -> str:
                 t0 = 0.3 + k * 0.45
                 kf = track(doc, P, [(0, f"fill:{PANEL_2}"), (t0, f"fill:{PANEL_2}"), (t0 + .15, f"fill:{color}"),
                                     (7.4, f"fill:{color}"), (7.8, f"fill:{PANEL_2}")])
-                out += f'<rect x="{cx}" y="{cy}" width="{cw}" height="{ch}" rx="5" fill="{color}" stroke="{LINE}" style="{anim(kf, P)}"/>'
+                out += f'<rect x="{cx}" y="{cy}" width="{cw}" height="{ch}" rx="2" fill="{color}" stroke="{LINE}" style="{anim(kf, P)}"/>'
             else:
-                out += f'<rect x="{cx}" y="{cy}" width="{cw}" height="{ch}" rx="5" fill="{PANEL_2}" stroke="{LINE}"/>'
+                out += f'<rect x="{cx}" y="{cy}" width="{cw}" height="{ch}" rx="2" fill="{PANEL_2}" stroke="{LINE}"/>'
     # wallet card
     wy = gy + rows * (ch + g) + 10
     ww = cols * (cw + g) - g
-    out += f'<rect x="{mx}" y="{wy}" width="{ww}" height="52" rx="10" fill="{PANEL_2}" stroke="{LINE}"/>'
+    out += f'<rect x="{mx}" y="{wy}" width="{ww}" height="52" rx="4" fill="{PANEL_2}" stroke="{LINE}"/>'
     out += doc.text("mono", "COIN WALLET", mx + 14, wy + 20, 10, DIM, tracking=1)
     out += f'<circle cx="{mx + 22}" cy="{wy + 36}" r="7" fill="#F5C542"/><circle cx="{mx + 22}" cy="{wy + 36}" r="3.5" fill="none" stroke="#8a6a12" stroke-width="1.2"/>'
     vals = ["240", "260", "280", "300", "320"]
@@ -68,7 +70,7 @@ def portal(doc: Doc, x, y, w, h, color=ROLE["web"]) -> str:
     kf = track(doc, P, [(0, "opacity:0;transform:translateY(-10px)"), (2.6, "opacity:0;transform:translateY(-10px)"),
                         (3.0, "opacity:1;transform:translateY(0px)"), (6.2, "opacity:1;transform:translateY(0px)"),
                         (6.6, "opacity:0;transform:translateY(-10px)")])
-    toast = (f'<rect x="{tx}" y="{ty}" width="{tw}" height="{th}" rx="10" fill="{mix(BG, GREEN, .16)}" stroke="{GREEN}" stroke-opacity=".6"/>'
+    toast = (f'<rect x="{tx}" y="{ty}" width="{tw}" height="{th}" rx="4" fill="{PANEL_2}" stroke="{GREEN}" stroke-opacity=".6"/>'
              f'<circle cx="{tx + 20}" cy="{ty + 20}" r="8" fill="{GREEN}"/>'
              f'<path d="M{tx + 16} {ty + 20} l3 3 l6 -6" fill="none" stroke="{BG}" stroke-width="2" stroke-linecap="round"/>'
              + doc.text("mono-bold", "razorpay · paid", tx + 36, ty + 25, 12, INK))
@@ -85,7 +87,7 @@ def experience() -> str:
     doc.add(s)
     doc.add(f'<circle cx="{x0 + w + 16}" cy="41" r="4" fill="{GREEN}"/>')
     doc.add(doc.text("mono", "AUG 2026 — NOW · REMOTE", x0 + w + 28, 45, 11.5, MUTED, tracking=1))
-    doc.add(doc.text("display", "Language Metrics", x0 - 2, 98, 40, INK, max_width=maxw, where="exp title"))
+    doc.add(doc.text("display", "Language Metrics", x0 - 2, 100, 50, INK, max_width=maxw, where="exp title"))
     doc.add(doc.text("body", "Full Stack Developer Intern · languagemetrics.in", x0, 128, 16.5, INK_2, max_width=maxw))
     points = [
         "Shipped the Teacher and Admin portals: JWT auth, class booking, Razorpay checkout and a coin wallet.",

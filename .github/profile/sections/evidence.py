@@ -34,12 +34,12 @@ def build_all():
         x = (i % cols) * (cw + gap)
         y = (i // cols) * (ch + gap)
         doc.add(card(doc, x, y, cw, ch, r=14))
-        doc.add(doc.text("display", name, x + 20, y + 38, 21, INK, max_width=cw - 110, where="evidence name"))
+        doc.add(doc.text("display", name, x + 20, y + 40, 27, INK, max_width=cw - 110, where="evidence name"))
         if live:
-            doc.add(f'<rect x="{num(x + cw - 74)}" y="{y + 20}" width="56" height="22" rx="11" fill="{mix(BG, GREEN, .16)}" '
+            doc.add(f'<rect x="{num(x + cw - 74)}" y="{y + 20}" width="56" height="22" rx="3" fill="none" '
                     f'stroke="{GREEN}" stroke-opacity=".5"/>')
             pulse = track(doc, 1.8, [(0, "opacity:1"), (0.9, "opacity:.3"), (1.8, "opacity:1")])
-            doc.add(f'<circle cx="{num(x + cw - 62)}" cy="{y + 31}" r="3.5" fill="{GREEN}" style="{anim(pulse, 1.8)}"/>')
+            doc.add(f'<rect x="{num(x + cw - 65)}" y="{y + 28}" width="6" height="6" fill="{GREEN}" style="{anim(pulse, 1.8)}"/>')
             doc.add(doc.text("mono-bold", "LIVE", x + cw - 54, y + 35, 10.5, GREEN, tracking=1))
         else:
             doc.add(doc.text("mono", "↗", x + cw - 22, y + 36, 14, DIM, anchor="end"))
@@ -50,7 +50,7 @@ def build_all():
         tx = x + 20
         for label, k in tags:
             w = measure("mono-bold", label, 10, 0.8) + 16
-            doc.add(f'<rect x="{num(tx)}" y="{y + ch - 34}" width="{num(w)}" height="20" rx="10" fill="{mix(BG, ROLE[k], .14)}"/>'
+            doc.add(f'<rect x="{num(tx)}" y="{y + ch - 34}" width="{num(w)}" height="20" rx="3" fill="none" stroke="{ROLE[k]}" stroke-opacity=".5"/>'
                     + doc.text("mono-bold", label, tx + 8, y + ch - 20.5, 10, ROLE[k], tracking=0.8))
             tx += w + 6
     return [("evidence.svg", doc.render())]

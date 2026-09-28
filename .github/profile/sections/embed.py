@@ -52,22 +52,17 @@ def build_all():
                     "lands between the two clusters.")
     doc.style(".fc{transform-box:fill-box;transform-origin:50% 50%}")
     doc.add(card(doc))
-    doc.add(doc.text("display", "My skills, embedded", 36, 52, 26, INK))
+    doc.add(doc.text("display", "My skills, embedded", 36, 56, 34, INK))
     doc.add(doc.text("mono", "illustrative 2-D projection · k-NN to a query vector", 36, 74, 11.5, DIM))
     # plot area
     px, py, pw, ph = 36, 96, 668, 392
-    doc.add(f'<rect x="{px}" y="{py}" width="{pw}" height="{ph}" rx="14" fill="{PANEL}" stroke="{LINE}"/>')
+    doc.add(f'<rect x="{px}" y="{py}" width="{pw}" height="{ph}" rx="4" fill="{PANEL}" stroke="{LINE}"/>')
     grid = "".join(f'<line x1="{px + i * pw / 8:.1f}" y1="{py}" x2="{px + i * pw / 8:.1f}" y2="{py + ph}"/>' for i in range(1, 8))
     grid += "".join(f'<line x1="{px}" y1="{py + i * ph / 6:.1f}" x2="{px + pw}" y2="{py + i * ph / 6:.1f}"/>' for i in range(1, 6))
     doc.add(f'<g stroke="{GRID_C}" stroke-width="1">{grid}</g>')
     ox, oy = px - 36 + 6, py - 96 + 8      # point coords are authored relative to (36, 96)
     P = lambda name: (POINTS[name][0] + ox, POINTS[name][1] + oy)
 
-    for label, cx, cy, rx, ry, c in CLUSTERS:
-        gid = doc.uid("cl")
-        doc.add_def(gid, f'<radialGradient id="{gid}"><stop offset="0" stop-color="{c}" stop-opacity=".16"/>'
-                         f'<stop offset="1" stop-color="{c}" stop-opacity="0"/></radialGradient>')
-        doc.add(f'<ellipse cx="{cx + ox}" cy="{cy + oy}" rx="{rx}" ry="{ry}" fill="url(#{gid})"/>')
     for label, cx, cy, rx, ry, c in CLUSTERS:
         lx = cx + ox - measure("mono-bold", label, 10.5, 1.2) / 2
         ly = cy + oy - ry - 4 if label != "FOUNDATIONS" else cy + oy + ry - 2
@@ -86,7 +81,12 @@ def build_all():
                 pts += [(s + .7, "transform:scale(1)"), (s + 1.0, "transform:scale(1.6)"), (s + 5.4, "transform:scale(1.6)"),
                         (s + 5.8, "transform:scale(1)")]
             style = f' class="fc" style="{anim(track(doc, T, pts), T)}"'
-        doc.add(f'<circle cx="{X}" cy="{Y}" r="4" fill="{c}"{style}/>')
+        if c == F:
+            doc.add(f'<rect x="{X - 3}" y="{Y - 3}" width="6" height="6" fill="{c}"{style}/>')
+        elif c == B:
+            doc.add(f'<circle cx="{X}" cy="{Y}" r="3.6" fill="{BG}" stroke="{c}" stroke-width="1.6"{style}/>')
+        else:
+            doc.add(f'<circle cx="{X}" cy="{Y}" r="4" fill="{c}"{style}/>')
         doc.add(doc.text("mono", name, X + 9, Y + 4, 11.5, INK_2 if hits else MUTED))
 
     # queries
@@ -115,7 +115,7 @@ def build_all():
 
         # side panel for this query
         panel = doc.text("mono-bold", "QUERY", rx0, 116, 11, c, tracking=1.4)
-        panel += (f'<rect x="{rx0}" y="128" width="{W - 36 - rx0}" height="40" rx="10" fill="{PANEL_2}" stroke="{c}" stroke-opacity=".5"/>'
+        panel += (f'<rect x="{rx0}" y="128" width="{W - 36 - rx0}" height="40" rx="4" fill="{PANEL_2}" stroke="{c}" stroke-opacity=".5"/>'
                   + doc.text("mono", qtext, rx0 + 14, 153, 13, INK, max_width=W - 36 - rx0 - 28, where="embed query"))
         panel += doc.text("mono-bold", "NEAREST NEIGHBOURS", rx0, 206, 11, DIM, tracking=1.4)
         scored = sorted(((max(0.5, 0.97 - math.hypot(P(n)[0] - Qx, P(n)[1] - Qy) / 900), n) for n in nn), reverse=True)
