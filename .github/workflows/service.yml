@@ -1,0 +1,39 @@
+name: Service Status — update transit SVGs
+
+on:
+  schedule:
+    # 06:00 IST = 00:30 UTC
+    - cron: '30 0 * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  update-service-status:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # ships a built-in fetch(); no npm install needed
+
+      - name: Generate departure board, service status and commuter line
+        run: node .github/scripts/generate-status.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_OWNER: ${{ github.repository_owner }}
+
+      - name: Commit and push if the SVGs changed
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "github-actions[bot]"
+          if git diff --quiet -- assets/; then
+            echo "No change in assets/ — nothing to commit."
+          else
+            git add assets/board-*.svg assets/status-*.svg assets/commuter-*.svg
+            git commit -m "chore: update service status SVGs [skip ci]"
+            git push
+          fi
